@@ -17,6 +17,8 @@ class TestIngresoalsistemaerroneo():
     self.driver.quit()
   
   def test_ingresoalsistemaerroneo(self):
+    print("Nombre de la prueba: Ingreso al sistema erroneo")
+    print("Navegador: Chrome")
     self.driver.get("https://tucan.toolsincloud.net/index.php")
     self.driver.maximize_window() 
     success_count = 0
