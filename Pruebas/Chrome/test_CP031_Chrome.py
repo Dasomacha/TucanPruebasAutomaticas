@@ -32,13 +32,13 @@ class TestBusquedadeusuarios():
         for row in reader:
             name = row['name']
             username = row['username']
-            try:
-              self.driver.find_element(By.CSS_SELECTOR, ".form-control").click()
-              self.driver.find_element(By.CSS_SELECTOR, ".form-control").send_keys(name)
-              WebDriverWait(self.driver, 30).until(expected_conditions.text_to_be_present_in_element((By.LINK_TEXT, name), name))
-              self.driver.find_element(By.LINK_TEXT, name).click()
-            except InvalidSessionIdException and NoSuchElementException as e:
-               break
+            self.driver.find_element(By.CSS_SELECTOR, ".form-control").click()
+            self.driver.find_element(By.CSS_SELECTOR, ".form-control").send_keys(name)
+            WebDriverWait(self.driver, 30).until(expected_conditions.text_to_be_present_in_element((By.LINK_TEXT, name), name))
+            self.driver.find_element(By.LINK_TEXT, name).click()
+            if self.driver.current_url != f'https://tucan.toolsincloud.net/{username[1:]}':
+              self.driver.close()
+              print("Error: La página localhost ha rechazado la conexión.")
 
               
   
