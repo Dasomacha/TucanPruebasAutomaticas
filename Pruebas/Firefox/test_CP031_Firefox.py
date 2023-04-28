@@ -18,6 +18,8 @@ class TestBusquedadeusuarios():
     self.driver.quit()
   
   def test_busquedadeusuarios(self):
+    print("Nombre de la prueba: Busqueda de usuarios")
+    print("Navegador: Firefox")
     self.driver.get("https://tucan.toolsincloud.net/index.php")
     self.driver.maximize_window()
     self.driver.find_element(By.NAME, "email").click()

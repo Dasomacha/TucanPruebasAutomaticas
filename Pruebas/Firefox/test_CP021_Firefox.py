@@ -17,6 +17,8 @@ class TestRegistroalsistema():
     self.driver.quit()
   
   def test_registroalsistema(self): 
+    print("Nombre de la prueba: Registro al sistema")
+    print("Navegador: Firefox")
     self.driver.get("https://tucan.toolsincloud.net/index.php")
     self.driver.maximize_window()
     success_count = 0

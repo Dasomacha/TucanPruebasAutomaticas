@@ -18,6 +18,8 @@ class TestRegistroalsistemaerroneo():
     self.driver.quit()
   
   def test_registroalsistemaerroneo(self):
+    print("Nombre de la prueba: Registro al sistema erroneo")
+    print("Navegador: Edge") 
     self.driver.get("https://tucan.toolsincloud.net/index.php")
     self.driver.maximize_window()
     success_count = 0

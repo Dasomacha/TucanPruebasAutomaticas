@@ -16,7 +16,9 @@ class TestRegistroalsistema():
   def teardown_method(self):
     self.driver.quit()
   
-  def test_registroalsistema(self): 
+  def test_registroalsistema(self):
+    print("Nombre de la prueba: Registro al sistema")
+    print("Navegador: Edge")  
     self.driver.get("https://tucan.toolsincloud.net/index.php")
     self.driver.maximize_window()
     success_count = 0

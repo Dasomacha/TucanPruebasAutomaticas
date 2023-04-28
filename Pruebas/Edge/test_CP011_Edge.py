@@ -18,7 +18,7 @@ class TestIngresoalsistema():
         
     def test_ingresoalsistema(self):
         print("Nombre de la prueba: Ingreso al sistema")
-        print("Navegador: Firefox") 
+        print("Navegador: Edge") 
         self.driver.get("https://tucan.toolsincloud.net/index.php")
         self.driver.maximize_window()
         success_count = 0
