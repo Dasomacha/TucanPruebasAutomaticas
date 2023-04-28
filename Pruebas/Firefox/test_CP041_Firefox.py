@@ -11,6 +11,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 class TestCP041():
   def setup_method(self):
@@ -45,7 +46,10 @@ class TestCP041():
         # Test name: CP04-1
         # Step # | name | target | value
         # 1 | open | /home.php | 
-        
+        wait = WebDriverWait(self.driver, 10)
+        # Espera a que el elemento sea visible y haga clic en él
+        element = wait.until(EC.element_to_be_clickable((By.NAME, "status")))
+        element.click()        
         # 3 | click | name=status | 
         self.driver.find_element(By.NAME, "status").click()
         # 4 | runScript | window.scrollTo(0,0) | 
@@ -68,7 +72,7 @@ class TestCP041():
                     failure_count += 1
                     print(f"La prueba {failure_count} fue fallida")
       self.driver.close()
-      print("Ejecuta")
+      
 test = TestCP041()
 test.setup_method()
 test.test_cP041()

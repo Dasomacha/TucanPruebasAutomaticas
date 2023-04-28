@@ -10,6 +10,8 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.support.ui import WebDriverWait
+
 
 class TestCP042():
   def setup_method(self):
@@ -46,6 +48,10 @@ class TestCP042():
       csv_reader = csv.reader(file)
       next(csv_reader) #skip header
       for row in csv_reader:
+       wait = WebDriverWait(self.driver, 10)
+       tweet_input = wait.until(expected_conditions.element_to_be_clickable((By.ID, "tweet-input")))
+       tweet_input.click()
+
     # 3 | click | name=status | 
        self.driver.find_element(By.NAME, "status").click()
     # 4 | runScript | window.scrollTo(0,0) | 
@@ -59,6 +65,7 @@ class TestCP042():
        self.driver.execute_script("window.scrollTo(0,0)")
     # 8 | type | id=tweet_img | C:\fakepath\videoprueba.mp4
        image_path = row[1]
+       
        self.driver.find_element(By.ID, "tweet_img").send_keys(image_path)
     # 9 | click | id=tweet-input | 
        self.driver.find_element(By.ID, "tweet-input").click()
