@@ -41,14 +41,15 @@ class TestRegistroalsistema():
             self.driver.find_element(By.ID, "exampleInputPassword1").click()
             self.driver.find_element(By.ID, "exampleInputPassword1").send_keys(password)
             self.driver.find_element(By.NAME, "signup").click()
-            self.driver.refresh()
             if self.driver.current_url == "https://tucan.toolsincloud.net/home.php":
               success_count += 1
               print(f"La prueba {success_count} fue exitosa")
+              self.driver.refresh()
               self.driver.find_element(By.CSS_SELECTOR, ".grid-sidebar:nth-child(11) strong").click()
             else:
               failure_count += 1
               print(f"La prueba {failure_count} fue fallida")
+              self.driver.refresh()
 
 test = TestRegistroalsistema()
 test.setup_method()
