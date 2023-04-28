@@ -19,7 +19,7 @@ class TestBusquedadeusuarios():
   
   def test_busquedadeusuarios(self):
     self.driver.get("https://tucan.toolsincloud.net/index.php")
-    self.driver.set_window_size(1361, 684)
+    self.driver.maximize_window()
     self.driver.find_element(By.NAME, "email").click()
     self.driver.find_element(By.NAME, "email").send_keys("predeterminado.username@gmail.com")
     self.driver.find_element(By.NAME, "password").click()
